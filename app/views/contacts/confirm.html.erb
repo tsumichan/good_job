@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+<h3>以下の内容で、送信します。</h3>
+
+<%= form_for(@contact) do |f| %>
+  <!-- `f.hidden_field`を使用して、リクエストパラメータに値を設定できるようにしています。 -->
+  <%= f.hidden_field :title %>
+  <%= f.hidden_field :content %>
+  <%= f.hidden_field :email %>
+
+  <!-- @blog.titleと@blog.contentとすることで、表示用の値を画面に出力しています。 -->
+  <p>タイトル:<%= @contact.title %></p>
+  <p>本文:<%= @contact.content %></p>
+  <p>メール:<%= @contact.email %></p>
+   <%= f.submit "送信する", class: 'btn btn-primary btn-block' %>
+<% end %>
+
+<%= form_for(@contact, url: new_contact_path, method: 'get') do |f| %>
+  <%= f.hidden_field :title %>
+  <%= f.hidden_field :content %>
+  <%= f.hidden_field :email %>
+  <%= f.submit "もどる", name: 'back', class: 'btn btn-default btn-block' %>
+<% end %>
+</div>
+</div>
