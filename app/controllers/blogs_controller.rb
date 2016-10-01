@@ -18,6 +18,7 @@ class BlogsController < ApplicationController
     if @blog.save
       # 一覧画面へ遷移して"ブログを作成しました！"とメッセージを表示します。
       redirect_to blogs_path, notice: "ブログを作成しました！"
+      NoticeMailer.sendmail_blog(@blog).deliver
     else
       # 入力フォームを再描画します。
       render action: 'new'
@@ -46,12 +47,12 @@ class BlogsController < ApplicationController
   end
   
   private
-    def blogs_params
-      params.require(:blog).permit(:title, :content)
-    end
-    
+  def blogs_params
+    params.require(:blog).permit(:title, :content)
+  end
+  
     # idをキーとして値を取得するメソッド
     def set_blog
       @blog = Blog.find(params[:id])
     end
-end
+  end
