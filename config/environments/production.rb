@@ -77,7 +77,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.default_url_options = { host: 'https://whispering-mountain-21741.herokuapp.com/' }
+  config.action_mailer.default_url_options = { host: 'https://thawing-headland-79355.herokuapp.com/' }
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings =
   {
@@ -88,5 +88,5 @@ Rails.application.configure do
    port: 587,
    authentication: :plain,
    enable_starttls_auto: true
-  }
+ }
 end
