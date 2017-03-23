@@ -1,0 +1,9 @@
+/Users/ichiokanatsumi/.anyenv/envs/rbenv/versions/2.2.5/bin/ruby -r ./siteconf20170123-16108-tb6v0.rb extconf.rb 
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+make: Nothing to be done for `all'.
+
+make "DESTDIR=" install

@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
     @blogs = Blog.all #全てのブログを取得する処理
   end
@@ -28,27 +28,27 @@ class BlogsController < ApplicationController
   def edit #編集画面を作る
     @blog = Blog.find(params[:id])
   end
-  
+
   def update #編集する
     @blog = Blog.find(params[:id])
     @blog.update(blogs_params)
     redirect_to blogs_path #redirect_to メソッド
   end
-  
+
   def destroy
     @blog = Blog.find(params[:id])
     @blog.destroy
     redirect_to blogs_path, notice: "ブログを削除しました！" #redirect_to メソッド
   end
-  
+
   def confirm
     @blog = Blog.new(blogs_params)
     render :new if @blog.invalid?
   end
-  
+
   private
   def blogs_params
-    params.require(:blog).permit(:title, :content)
+      params.require(:blog).permit(:title, :content)
   end
   
     # idをキーとして値を取得するメソッド
